@@ -2,14 +2,14 @@ public class PitCrewTeam implements TyreGunner, TyreOn, TyreOff, FrontJack, Side
 
     private String role;
     private int memberId;
-    private char team;
     private String assignedDriver;
-    int teamMembers;
-    int tyreGunners; //4
-    int tyreOffMembers; //4
-    int tyreOnMembers; //4
-    int frontWingMembers; //2
-    int lollipopMan; //1
+    private char team;
+    private int teamMembers;
+    private int tyreGunners; //4
+    private int tyreOffMembers; //4
+    private int tyreOnMembers; //4
+    private int frontWingMembers; //2
+    private int lollipopMan; //1
 
     // Constructor
     public PitCrewTeam(String role, int memberId, char team) {
@@ -48,6 +48,7 @@ public class PitCrewTeam implements TyreGunner, TyreOn, TyreOff, FrontJack, Side
 
         }
     }
+
 
     // Getters y setters
     public String getRole() {
