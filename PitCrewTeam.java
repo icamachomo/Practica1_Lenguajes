@@ -1,5 +1,6 @@
-public class PitCrewTeam implements TyreGunner, TyreOn, TyreOff, FrontJack, SideJack, RearJack, WingAdjuster, LollipopMan{
+public class PitCrewTeam implements TyreGunner, TyreOn, TyreOff, FrontJack, SideJack, RearJack, WingAdjuster, LollipopMan {
 
+    // Atributos de la clase
     private String role;
     private int memberId;
     private String assignedDriver;
@@ -19,36 +20,36 @@ public class PitCrewTeam implements TyreGunner, TyreOn, TyreOff, FrontJack, Side
         setNumberOfMembers(role);
     }
 
-    private void setNumberOfMembers (String role){
-        switch(role){
+    // Método privado para establecer el número de miembros según el rol
+    private void setNumberOfMembers(String role) {
+        switch (role) {
             case "Tyre Gunner":
-                if(this.tyreGunners < 4){
+                if (this.tyreGunners < 4) {
                     tyreGunners++;
                 }
-                    break;
+                break;
             case "Tyre Off":
-                if(this.tyreOffMembers < 4){
+                if (this.tyreOffMembers < 4) {
                     tyreOffMembers++;
                 }
-                    break;
+                break;
             case "Tyre On":
-                if(this.tyreOnMembers < 4){
+                if (this.tyreOnMembers < 4) {
                     tyreOnMembers++;
                 }
-                    break;
+                break;
             case "Front Wing Man":
-                if(this.frontWingMembers < 2){
+                if (this.frontWingMembers < 2) {
                     frontWingMembers++;
                 }
                 break;
             case "Lollipop Man":
-                if(this.lollipopMan < 1){
+                if (this.lollipopMan < 1) {
                     lollipopMan++;
                 }
-
+                break;
         }
     }
-
 
     // Getters y setters
     public String getRole() {
@@ -79,101 +80,53 @@ public class PitCrewTeam implements TyreGunner, TyreOn, TyreOff, FrontJack, Side
         this.teamMembers = teamMembers++;
     }
 
+    @Override
     public void removeWheelNut(RaceCar car) {
-        boolean wheelNutOn = car.isTheWheelNutOn();
-        if(wheelNutOn){
-            car.setTheWheelNutOn(false);
-            System.out.println("The wheel nut has been taken off");
-        } else {
-            System.out.println("The wheel nut is already off");
-        }
+        car.setTheWheelNutOn(false);
     }
 
+    @Override
     public void putWheelNutBackOn(RaceCar car) {
-        boolean wheelNutOn = car.isTheWheelNutOn();
-        if(!wheelNutOn){
-            car.setTheWheelNutOn(true);
-            System.out.println("The wheel nut has been put back on");
-        } else {
-            System.out.println("The wheel nut is already on");
-        }
+        car.setTheWheelNutOn(true);
     }
 
+    @Override
     public void removeTyres(RaceCar car) {
-        boolean tyresOn = car.areTyresOn();
-        if(car.isFrontLifted() && car.isBackLifted() && car.areSidesLifted() ){
-            if(tyresOn){
-                car.setTyresOn(false);
-                System.out.println("The tyres have been taken off");
-            } else {
-                System.out.println("The tyres are already off");
-            }
-        } else {
-            System.out.println("The car needs to be lifted before taking the tyres off");
-        }
+        car.setTyresOn(false);
     }
 
+    @Override
     public void putTyresBackOn(RaceCar car) {
-        boolean tyresOn = car.areTyresOn();
-        if(!tyresOn){
-            car.setTyresOn(true);
-            car.setFrontLifted(false);
-            car.setBackLifted(false);
-            car.setAreSidesLifted(false);
-            car.setTheWheelNutOn(true);
-            System.out.println("The tyres have been put back on and the car is on the ground");
-        } else {
-            System.out.println("The tyres are already on");
-        }
+        car.setTyresOn(true);
+        car.setFrontLifted(false);
+        car.setBackLifted(false);
+        car.setAreSidesLifted(false);
+        car.setTheWheelNutOn(true);
     }
 
+    @Override
     public void liftFront(RaceCar car) {
-        boolean frontLifted = car.isFrontLifted();
-        if(!frontLifted){
-            car.setFrontLifted(true);
-            System.out.println("The front of the car has been lifted");
-        } else {
-            System.out.println("The front is already lifted");
-        }
+        car.setFrontLifted(true);
     }
 
+    @Override
     public void liftBack(RaceCar car) {
-        boolean backLifted = car.isBackLifted();
-        if(!backLifted){
-            car.setFrontLifted(true);
-            System.out.println("The back of the car has been lifted");
-        } else {
-            System.out.println("The back of the car is already lifted");
-        }
+        car.setBackLifted(true);
     }
 
+    @Override
     public void liftSides(RaceCar car) {
-        boolean sidesLifted = car.areSidesLifted();
-        if(!sidesLifted){
-            car.setFrontLifted(true);
-            System.out.println("The sides of the car have been lifted");
-        } else {
-            System.out.println("The sides of the car have already been lifted");
-        }
-
+        car.setAreSidesLifted(true);
     }
 
+    @Override
     public void adjustFrontWing(RaceCar car) {
-        boolean frontWingAdjusted = car.isFrontWingAdjusted();
-        if(!frontWingAdjusted){
-            car.setFrontWingAdjusted(true);
-            System.out.println("The front wing has been adjusted");
-        } else {
-            System.out.println("The front wing has already been adjusted");
-        }
+        car.setFrontWingAdjusted(true);
     }
 
+    @Override
     public void giveSignalToReleaseTheCar(RaceCar car) {
-        if(car.areTyresOn() && car.isFrontWingAdjusted() && car.isTheWheelNutOn() ){
-            car.setState("The car is in movement");
-            car.setFrontWingAdjusted(false);
-        } else {
-            System.out.println("The car is not ready, check if you have missed one of the team´s tasks \n¡Hurry up!");
-        }
+        car.setState("The car is in movement");
+        car.setFrontWingAdjusted(false);
     }
 }
