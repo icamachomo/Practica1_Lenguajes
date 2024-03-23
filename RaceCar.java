@@ -1,7 +1,7 @@
 public class RaceCar {
     String driver;
     String state;
-    String driversNeed;
+    String driversInterest;
     boolean tyresOn;
     boolean isTheWheelNutOn;
     boolean isFrontLifted;
@@ -9,16 +9,28 @@ public class RaceCar {
     boolean areSidesLifted;
     boolean isFrontWingAdjusted;
 
-    public RaceCar (String driver, String driversNeed){
+    public RaceCar (String driver, String driversInterst){
         this.driver = driver;
         this.state = "About to start a race";
-        this.driversNeed = driversNeed;
+        this.driversInterest = driversInterest;
         this.tyresOn = true;
         this.isTheWheelNutOn = true;
         this.isFrontLifted = false;
         this.isBackLifted = false;
         this.areSidesLifted = false;
         this.isFrontWingAdjusted = false;
+    }
+
+    public String getDriver() {
+        return driver;
+    }
+
+    public void setDriver(String driver) {
+        this.driver = driver;
+    }
+
+    public void setDriversInterest(String driversInterest) {
+        this.driversInterest = driversInterest;
     }
 
     public boolean areTyresOn() {
