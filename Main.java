@@ -234,8 +234,12 @@ public class Main {
                     break;
 
                 case 3:
-
+                    System.out.println("Pit Team Info:");
+                    pitTeam1.displayTeamInfo(); // Aquí reemplaza pitTeam1 con la instancia correcta que deseas mostrar
+                    
                     break;
+
+                
 
                 case 4:
 

@@ -223,4 +223,18 @@ public class PitCrewTeam implements TyreGunner, TyreOn, TyreOff, FrontJack, Side
         }
         return bool;
     }
+
+    public void displayTeamInfo() {
+        System.out.println("Role: " + role);
+        System.out.println("Name: " + name);
+        System.out.println("Assigned Driver: " + assignedDriver);
+        System.out.println("Team: " + team);
+        System.out.println("Number of Team Members: " + teamMembers);
+        System.out.println("Number of Tyre Gunners: " + tyreGunners);
+        System.out.println("Number of Tyre Off Members: " + tyreOffMembers);
+        System.out.println("Number of Tyre On Members: " + tyreOnMembers);
+        System.out.println("Number of Front Wing Members: " + frontWingMembers);
+        System.out.println("Number of Lollipop Man: " + lollipopMan);
+    }
+    
 }
