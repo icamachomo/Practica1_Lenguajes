@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Random;
 public class Main {
 
     public static void main(String[] args) {
@@ -239,10 +240,18 @@ public class Main {
                     
                     break;
 
-                
-
                 case 4:
+                Random random = new Random();
+                int randomCarA = random.nextInt(1000);
+                int randomCarB = random.nextInt(1000);
 
+                if(randomCarA > randomCarB){
+                    System.out.println("The winner is: Team A's racer - " + carA.getDriver());
+                } else if(randomCarA < randomCarB){
+                    System.out.println("The winner is: Team B's racer - " + carB.getDriver());
+                } else {
+                    System.out.println("It's a tie!");
+                }
                     break;
             }
             System.out.println("\n");
