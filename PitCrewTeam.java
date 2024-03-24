@@ -94,7 +94,7 @@ public class PitCrewTeam implements TyreGunner, TyreOn, TyreOff, FrontJack, Side
             car.setTheWheelNutOn(false);
             System.out.print("The wheel nuts have been taken off ");
         } else {
-            System.out.println("The wheel nuts are already off");
+            System.out.print("The wheel nuts have already been taken off ");
         }
     }
 
@@ -104,7 +104,7 @@ public class PitCrewTeam implements TyreGunner, TyreOn, TyreOff, FrontJack, Side
             car.setTheWheelNutOn(true);
             System.out.print("The wheel nuts have been put back on ");
         } else {
-            System.out.println("The wheel nuts are already on");
+            System.out.print("The wheel nuts have alreafu been put back on ");
         }
     }
 
@@ -113,15 +113,16 @@ public class PitCrewTeam implements TyreGunner, TyreOn, TyreOff, FrontJack, Side
         boolean front = car.isFrontLifted();
         boolean sides = car.areSidesLifted();
         boolean back = car.isBackLifted();
+        boolean wheelNut = car.isTheWheelNutOn();
         if(front && sides && back){
-            if(tyresOn){
+            if(tyresOn && !wheelNut){
                 car.setTyresOn(false);
                 System.out.print("The tyres have been taken off ");
             } else {
-                System.out.println("The tyres have already been taken off");
+                System.out.print("The tyres have already been taken off");
             }
         } else {
-            System.out.println("The car needs to be lifted before taking the tyres off");
+            System.out.print("The car needs to be lifted and/or the wheel nuts haven´t been taken of ");
         }
     }
 
@@ -129,10 +130,9 @@ public class PitCrewTeam implements TyreGunner, TyreOn, TyreOff, FrontJack, Side
         boolean tyresOn = car.areTyresOn();
         if(!tyresOn){
             car.setTyresOn(true);
-            car.setTheWheelNutOn(true);
-            System.out.print("The tyres have been put back on ");
+            System.out.print("The new tyres have been put back on ");
         } else {
-            System.out.println("The tyres are already on");
+            System.out.print("The tyres have already been put on ");
         }
     }
 
@@ -142,7 +142,7 @@ public class PitCrewTeam implements TyreGunner, TyreOn, TyreOff, FrontJack, Side
             car.setFrontLifted(true);
             System.out.println("The front of the car has been lifted");
         } else {
-            System.out.println("The front is already lifted");
+            System.out.print("The front is already lifted");
         }
     }
 
@@ -211,11 +211,14 @@ public class PitCrewTeam implements TyreGunner, TyreOn, TyreOff, FrontJack, Side
     public boolean giveSignalToReleaseTheCar(RaceCar car) {
         boolean bool = false;
         if(car.areTyresOn() && car.isFrontWingAdjusted() && car.isTheWheelNutOn() ){
-            car.setState("The car is in movement");
+            car.setState("The car is now in movement!");
             car.setFrontWingAdjusted(false);
             bool = true;
-            System.out.println("The car is in movement");
+            System.out.println("\033[31mThe car is in movement!!!\u001B[0m");
         } else {
+            System.out.println("tyres" + car.areTyresOn());
+            System.out.println("font wing" + car.isFrontWingAdjusted());
+            System.out.println("wheel nut" + car.isTheWheelNutOn());
             System.out.println("The car is not ready, check if you have missed one of the team´s tasks \n¡Hurry up!");
         }
         return bool;

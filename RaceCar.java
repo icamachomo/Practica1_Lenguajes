@@ -9,10 +9,10 @@ public class RaceCar {
     boolean areSidesLifted;
     boolean isFrontWingAdjusted;
 
-    public RaceCar (String driver, String driversInterst){
+    public RaceCar (String driver, String interest){
         this.driver = driver;
         this.state = "About to start a race";
-        this.driversInterest = driversInterest;
+        this.driversInterest = interest;
         this.tyresOn = true;
         this.isTheWheelNutOn = true;
         this.isFrontLifted = false;
@@ -31,6 +31,10 @@ public class RaceCar {
 
     public void setDriversInterest(String driversInterest) {
         this.driversInterest = driversInterest;
+    }
+
+    public String getDriversInterest() {
+        return driversInterest;
     }
 
     public boolean areTyresOn() {

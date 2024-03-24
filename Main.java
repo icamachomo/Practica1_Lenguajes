@@ -4,8 +4,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner kb = new Scanner(System.in);
 
-        RaceCar carA = new RaceCar("Lucas","He likes art");
-        RaceCar carB = new RaceCar("Santiago", "He likes rock music");
+        RaceCar carA = new RaceCar("Lucas","he likes art");
+        RaceCar carB = new RaceCar("Santiago", "he likes rock music");
 
         PitCrewTeam pitTeam1 = new PitCrewTeam("Tyre Gunner", "Pablo");
         PitCrewTeam pitTeam2 = new PitCrewTeam("Tyre Gunner", "Augusto");
@@ -32,8 +32,10 @@ public class Main {
         TeamDriverA teamA3 = new TeamDriverA("Rear Jack", "Cesar", 'a', carA);
 
 
-        System.out.println("Before starting the race you get one chance to learn more about the racers!");
-        System.out.println("Choose one option");
+        System.out.println("\033[31mBefore starting the race you get ONE CHANCE to learn more about the racers!\u001B[0m");
+        System.out.println("Team A´s racer: " + carA.getDriver() + ", " + carA.getDriversInterest());
+        System.out.println("Team B´s racer: " + carB.getDriver() + ", " + carB.getDriversInterest());
+        System.out.println("\033[31m\nChoose one option\u001B[0m");
         System.out.println("1. Get info about the racer´s interests");
         System.out.println("2. Ask Driver A a random question");
         System.out.println("3. Change Driver B´s mind");
@@ -58,7 +60,7 @@ public class Main {
         carB.setState("Started the race");
 
         while(true){
-            System.out.println("Choose an option: ");
+            System.out.println("\033[31mChoose an option: \u001B[0m");
             System.out.println("1. Take Driver A to the Pit Stop");
             System.out.println("2. Take Driver B to the Pit Stop");
             System.out.println("3. Get the Pit Team Info");
@@ -68,10 +70,16 @@ public class Main {
             switch(op2){
 
                 case 1:
-                    boolean ready = true;
+                    boolean ready = false;
+                    System.out.println("\n");
+                    System.out.println("\n");
+                    System.out.println("\n");
+                    System.out.println("\n");
+                    System.out.println("\n");
+                    System.out.println("\n");
                     while(true){
                         carA.setState("At the pit stop");
-                        System.out.println("Choose an option (in corresponding order) ");
+                        System.out.println("\033[31mDriver A´s Pit Stop (choose in corresponding order)\u001B[0m ");
                         System.out.println("1. Lift Car");
                         System.out.println("2. Remove wheel nuts");
                         System.out.println("3. Tyres off");
@@ -137,14 +145,23 @@ public class Main {
                         if(case1 == 8 && ready){
                             break;
                         }
+                        System.out.println("\n");
+                        System.out.println("\n");
+                        System.out.println("\n");
                     }
                 break;
 
                 case 2:
                     boolean ready2 = false;
+                    System.out.println("\n");
+                    System.out.println("\n");
+                    System.out.println("\n");
+                    System.out.println("\n");
+                    System.out.println("\n");
+                    System.out.println("\n");
                     while(true){
                         carB.setState("At the pit stop");
-                        System.out.println("Choose an option (in corresponding order) ");
+                        System.out.println("\033[31mDriver B´s Pit Stop (choose in corresponding order) \u001B[0m");
                         System.out.println("1. Lift Car");
                         System.out.println("2. Remove wheel nuts");
                         System.out.println("3. Tyres off");
@@ -204,12 +221,15 @@ public class Main {
                                 teamB3.lowerBack();
                                 break;
                             case 8:
-                                ready2 = pitTeam15.giveSignalToReleaseTheCar(carA);
+                                ready2 = pitTeam15.giveSignalToReleaseTheCar(carB);
                                 break;
                         }
                         if(case1 == 8 && ready2){
                             break;
                         }
+                        System.out.println("\n");
+                        System.out.println("\n");
+                        System.out.println("\n");
                     }
                     break;
 
@@ -221,6 +241,12 @@ public class Main {
 
                     break;
             }
+            System.out.println("\n");
+            System.out.println("\n");
+            System.out.println("\n");
+            System.out.println("\n");
+            System.out.println("\n");
+            System.out.println("\n");
 
         }
 

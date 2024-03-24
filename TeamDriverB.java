@@ -56,15 +56,15 @@ public class TeamDriverB extends PitCrewTeam{
         switch(opcion){
             case 1:
                 System.out.println(driver + " no longer likes rock, he wants to learn how to surf");
-                car.setDriversInterest("He wants to learn how to surf");
+                car.setDriversInterest("he wants to learn how to surf");
                 break;
             case 2:
                 System.out.println(driver + " decided to quit F1! This is his last race :(");
-                car.setDriversInterest("He is quiting F1 and decided to become a doctor");
+                car.setDriversInterest("he is quiting F1 and decided to become a doctor");
                 break;
             case 3:
                 System.out.println(driver + " decided he wants to start bike racing");
-                car.setDriversInterest("He decided to start bike racing");
+                car.setDriversInterest("he decided to start bike racing");
         }
     }
 
@@ -98,7 +98,7 @@ public class TeamDriverB extends PitCrewTeam{
         boolean sidesLifted = car.areSidesLifted();
         if(!sidesLifted){
             car.setAreSidesLifted(true);
-            System.out.println("The sides of the car b were lifted by: " + this.getName());
+            System.out.println("The sides of the car B were lifted by: " + this.getName());
         } else {
             System.out.println("The sides of the car have already been lifted");
         }
