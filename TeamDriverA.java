@@ -1,3 +1,6 @@
+// Herencia la clase TeamDriverA hereda de la clase PitCrewTam, lo que significa que adquiere todos los campos y métodos definidos en PitCrewTeam.
+
+
 import java.util.Random;
 
 public class TeamDriverA extends PitCrewTeam {

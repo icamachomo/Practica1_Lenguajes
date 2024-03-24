@@ -1,3 +1,7 @@
+// Abstracción La clase modela un coche de carrera con sus propiedades y estados relevantes para la carrera.
+// Encapsulamiento Las variables de instancia están encapsuladas y solo se acced a ellas a través de métodos getter y setter.
+
+
 public class RaceCar {
     String driver;
     String state;

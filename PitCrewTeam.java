@@ -1,3 +1,8 @@
+// Abstracción La clase modela los equipos de la pista con diferente roles y miembros asociados a cada equipo.
+// Encapsulamiento Las variables de instancia están encapsuladas y solo se puden acceder a ellas a través de métodos getter y setter.
+// Abstracción La clase define un comportamiento común para varios roles de equipo de la pista a través de interfaces.
+
+
 public class PitCrewTeam implements TyreGunner, TyreOn, TyreOff, FrontJack, SideJack, RearJack, WingAdjuster, LollipopMan{
 
     private String role;

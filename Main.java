@@ -1,13 +1,17 @@
 import java.util.Scanner;
 import java.util.Random;
+
+// Encapsulamiento: Creación de objetos RaceCar y PitCrewTeam
 public class Main {
 
     public static void main(String[] args) {
         Scanner kb = new Scanner(System.in);
 
-        RaceCar carA = new RaceCar("Lucas","he likes art");
+        // Encapsulamiento: Creación de objetos RaceCar
+        RaceCar carA = new RaceCar("Lucas", "he likes art");
         RaceCar carB = new RaceCar("Santiago", "he likes rock music");
 
+        // Encapsulamiento: Creación de objetos PitCrewTeam
         PitCrewTeam pitTeam1 = new PitCrewTeam("Tyre Gunner", "Pablo");
         PitCrewTeam pitTeam2 = new PitCrewTeam("Tyre Gunner", "Augusto");
         PitCrewTeam pitTeam3 = new PitCrewTeam("Tyre Gunner", "Jack");
@@ -24,6 +28,7 @@ public class Main {
         PitCrewTeam pitTeam14 = new PitCrewTeam("Front Wing Man", "Hernán");
         PitCrewTeam pitTeam15 = new PitCrewTeam("Lollipop Man", "Osvaldo");
 
+        // Herencia: Creación de objetos TeamDriverB y TeamDriverA
         TeamDriverB teamB1 = new TeamDriverB("Front Jack", "Juan", 'b', carB);
         TeamDriverB teamB2 = new TeamDriverB("Side Jacks", "Camilo and Carlos", 'b', carB);
         TeamDriverB teamB3 = new TeamDriverB("Rear Jack", "Oscar", 'b', carB);

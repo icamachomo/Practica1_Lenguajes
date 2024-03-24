@@ -1,3 +1,5 @@
+// Herencia la clase TeamDriverB hereda de la clase PitCrewTeam, lo que significa q adquiere todos los campos y métodos definidos en PitCrewTeam.
+
 import java.util.Random;
 public class TeamDriverB extends PitCrewTeam{
     private RaceCar carB;

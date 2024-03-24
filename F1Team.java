@@ -1,3 +1,4 @@
+// Abstracción: La clase F1Team encapsula los datos y comportamientos relacionados con un equipo de Fórmula 1
 import java.util.Random;
 //Datos de ejemplo para la clase F1Team
 public class F1Team {
