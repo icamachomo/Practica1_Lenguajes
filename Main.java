@@ -7,6 +7,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner kb = new Scanner(System.in);
 
+        F1Team eafun = new F1Team("Eafun", 2024);
+
         // Encapsulamiento: Creación de objetos RaceCar
         RaceCar carA = new RaceCar("Lucas", "he likes art");
         RaceCar carB = new RaceCar("Santiago", "he likes rock music");
@@ -37,8 +39,11 @@ public class Main {
         TeamDriverA teamA2 = new TeamDriverA("Side Jacks", "Felipe and Pablo", 'a', carA);
         TeamDriverA teamA3 = new TeamDriverA("Rear Jack", "Cesar", 'a', carA);
 
+        PitCrewTeam[] pitCrewTeam = {teamA1, teamA2, teamA3, teamB1, teamB2, teamB3, pitTeam1, pitTeam2, pitTeam3, pitTeam4, pitTeam5, pitTeam6, pitTeam7, pitTeam8, pitTeam9, pitTeam10, pitTeam11, pitTeam12, pitTeam13, pitTeam14, pitTeam15 };
+        eafun.setPitCrewTeam(pitCrewTeam);
 
-        System.out.println("\033[31mBefore starting the race you get ONE CHANCE to learn more about the racers!\u001B[0m");
+        System.out.println("\033[31m¡WELCOME TO F1!\u001B[0m");
+        System.out.println("\n\033[31mBefore starting the race you get ONE CHANCE to learn something about the racers!\u001B[0m");
         System.out.println("Team A´s racer: " + carA.getDriver() + ", " + carA.getDriversInterest());
         System.out.println("Team B´s racer: " + carB.getDriver() + ", " + carB.getDriversInterest());
         System.out.println("\033[31m\nChoose one option\u001B[0m");
@@ -59,7 +64,7 @@ public class Main {
                 teamB1.changeInterests(carB);
                 break;
         }
-        System.out.println("All done, we are now ready to start the race!");
+        System.out.println("All done, you got to know the racers and we are now ready to start the race!");
         System.out.println(" ");
 
         carA.setState("Started the race");
@@ -240,9 +245,13 @@ public class Main {
                     break;
 
                 case 3:
-                    System.out.println("Pit Team Info:");
+                    System.out.println("PIT TEAM INFO");
+                    eafun.displayTeamInfo();
+                    System.out.println("(You can replace \033[31min the code\u001B[0m the instance you want to display)");
+                    System.out.println("\nTEAM MEMBER INFO");
                     pitTeam1.displayTeamInfo(); // Aquí reemplaza pitTeam1 con la instancia correcta que deseas mostrar
-                    
+                    System.out.println("\nIf team = 'z' it means this member belongs to the Pit Crew of both drivers");
+
                     break;
 
                 case 4:
@@ -266,6 +275,10 @@ public class Main {
             System.out.println("\n");
             System.out.println("\n");
 
+            if(op2 == 4){
+                System.out.println("\033[31m¡Thank you for competing with Eafun´s F1 Team!\u001B[0m");
+                break;
+            }
         }
 
 

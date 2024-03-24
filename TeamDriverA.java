@@ -6,39 +6,23 @@ import java.util.Random;
 public class TeamDriverA extends PitCrewTeam {
     private RaceCar carA;
     private char team;
-    private int frontJack; //1
-    private int sideJack; //1
-    private int rearJack; //1
+    private String name;
+    private int age;
 
     public TeamDriverA(String role, String name, char team, RaceCar carA) {
         super(role, name, team);
         this.carA = carA;
-        setNumberOfMembers(role);
+        this.setAge();
     }
 
-    private void setNumberOfMembers(String role) {
-        switch (role) {
-            case "Front Jack":
-                if (this.frontJack < 1) {
-                    frontJack++;
-                }
-                break;
-            case "Side Jack":
-                if (this.sideJack < 1) {
-                    sideJack++;
-                }
-                break;
-            case "Rear Jack":
-                if (this.rearJack < 1) {
-                    rearJack++;
-                }
-                break;
-
-        }
+    private void setAge(){
+        Random r = new Random();
+        int opcion = r.nextInt(20,46);
+        this.age = opcion;
     }
+
 
     //Distinct Methods
-
     public void getArtInfo(RaceCar car) {
         String driver = car.getDriver();
         Random r = new Random();
@@ -84,6 +68,7 @@ public class TeamDriverA extends PitCrewTeam {
         } else {
             System.out.println("The front is already lifted");
         }
+        car.setOnTheGround(false);
     }
 
     public void liftBack() {
@@ -129,6 +114,7 @@ public class TeamDriverA extends PitCrewTeam {
         } else {
             System.out.println("The back has already been lowered");
         }
+        car.setOnTheGround(true);
     }
 
     public void lowerSides() {

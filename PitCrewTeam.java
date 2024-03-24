@@ -3,61 +3,34 @@
 // Abstracción La clase define un comportamiento común para varios roles de equipo de la pista a través de interfaces.
 
 
+import java.util.Random;
+
 public class PitCrewTeam implements TyreGunner, TyreOn, TyreOff, FrontJack, SideJack, RearJack, WingAdjuster, LollipopMan{
 
     private String role;
     private String name;
-    private String assignedDriver;
     private char team;
-    private int teamMembers;
-    private int tyreGunners; //4
-    private int tyreOffMembers; //4
-    private int tyreOnMembers; //4
-    private int frontWingMembers; //2
-    private int lollipopMan; //1
+    private int age;
+
 
     // Constructor
     public PitCrewTeam(String role, String name, char team) {
         this.role = role;
         this.name = name;
         this.team = team;
-        setNumberOfMembers(role);
+        this.setAge();
     }
 
     public PitCrewTeam(String role, String name) {
         this.role = role;
         this.name = name;
-        setNumberOfMembers(role);
+        this.team = 'z';
     }
 
-    private void setNumberOfMembers (String role){
-        switch(role){
-            case "Tyre Gunner":
-                if(this.tyreGunners < 4){
-                    tyreGunners++;
-                }
-                    break;
-            case "Tyre Off":
-                if(this.tyreOffMembers < 4){
-                    tyreOffMembers++;
-                }
-                    break;
-            case "Tyre On":
-                if(this.tyreOnMembers < 4){
-                    tyreOnMembers++;
-                }
-                    break;
-            case "Front Wing Man":
-                if(this.frontWingMembers < 2){
-                    frontWingMembers++;
-                }
-                break;
-            case "Lollipop Man":
-                if(this.lollipopMan < 1){
-                    lollipopMan++;
-                }
-
-        }
+    private void setAge(){
+        Random r = new Random();
+        int opcion = r.nextInt(20,46);
+        this.age = opcion;
     }
 
 
@@ -81,17 +54,6 @@ public class PitCrewTeam implements TyreGunner, TyreOn, TyreOff, FrontJack, Side
         this.name = name;
     }
 
-    public String getAssignedDriver() {
-        return assignedDriver;
-    }
-
-    public void setAssignedDriver(String assignedDriver) {
-        this.assignedDriver = assignedDriver;
-    }
-
-    public void addMember(){
-        this.teamMembers = teamMembers++;
-    }
 
     public void removeWheelNut(RaceCar car) {
         boolean wheelNutOn = car.isTheWheelNutOn();
@@ -120,14 +82,18 @@ public class PitCrewTeam implements TyreGunner, TyreOn, TyreOff, FrontJack, Side
         boolean back = car.isBackLifted();
         boolean wheelNut = car.isTheWheelNutOn();
         if(front && sides && back){
-            if(tyresOn && !wheelNut){
-                car.setTyresOn(false);
-                System.out.print("The tyres have been taken off ");
+            if(tyresOn){
+                if(!wheelNut){
+                    car.setTyresOn(false);
+                    System.out.print("The tyres have been taken off ");
+                } else {
+                    System.out.print("The wheel nuts haven´t been taken of ");
+                }
             } else {
-                System.out.print("The tyres have already been taken off");
+                System.out.print("The tyres have already been taken off ");
             }
         } else {
-            System.out.print("The car needs to be lifted and/or the wheel nuts haven´t been taken of ");
+            System.out.print("The car needs to be lifted ");
         }
     }
 
@@ -215,15 +181,13 @@ public class PitCrewTeam implements TyreGunner, TyreOn, TyreOff, FrontJack, Side
 
     public boolean giveSignalToReleaseTheCar(RaceCar car) {
         boolean bool = false;
-        if(car.areTyresOn() && car.isFrontWingAdjusted() && car.isTheWheelNutOn() ){
+        boolean onTheGround = car.isOnTheGround();
+        if(car.areTyresOn() && car.isFrontWingAdjusted() && car.isTheWheelNutOn() && onTheGround){
             car.setState("The car is now in movement!");
             car.setFrontWingAdjusted(false);
             bool = true;
             System.out.println("\033[31mThe car is in movement!!!\u001B[0m");
         } else {
-            System.out.println("tyres" + car.areTyresOn());
-            System.out.println("font wing" + car.isFrontWingAdjusted());
-            System.out.println("wheel nut" + car.isTheWheelNutOn());
             System.out.println("The car is not ready, check if you have missed one of the team´s tasks \n¡Hurry up!");
         }
         return bool;
@@ -232,14 +196,7 @@ public class PitCrewTeam implements TyreGunner, TyreOn, TyreOff, FrontJack, Side
     public void displayTeamInfo() {
         System.out.println("Role: " + role);
         System.out.println("Name: " + name);
-        System.out.println("Assigned Driver: " + assignedDriver);
         System.out.println("Team: " + team);
-        System.out.println("Number of Team Members: " + teamMembers);
-        System.out.println("Number of Tyre Gunners: " + tyreGunners);
-        System.out.println("Number of Tyre Off Members: " + tyreOffMembers);
-        System.out.println("Number of Tyre On Members: " + tyreOnMembers);
-        System.out.println("Number of Front Wing Members: " + frontWingMembers);
-        System.out.println("Number of Lollipop Man: " + lollipopMan);
     }
     
 }

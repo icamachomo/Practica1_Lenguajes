@@ -11,6 +11,7 @@ public class RaceCar {
     boolean isFrontLifted;
     boolean isBackLifted;
     boolean areSidesLifted;
+    boolean onTheGround;
     boolean isFrontWingAdjusted;
 
     public RaceCar (String driver, String interest){
@@ -95,5 +96,13 @@ public class RaceCar {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public boolean isOnTheGround() {
+        return onTheGround;
+    }
+
+    public void setOnTheGround(boolean onTheGround) {
+        this.onTheGround = onTheGround;
     }
 }
